@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <h1>
+        PREMIER TEST
+    </h1>
+    <script type="text/javascript">
+
+        //PETITE EXPLICATION FONCTION
+        // function addition(param1,param2){
+        //     return param1+param2;
+        // }
+
+        
+        // var a = 10;
+        // var b = 13;
+        // var x = 20;
+        // var y = 8;
+
+        // var result1 = addition(t,b);;
+        // var result2 = addition(x,y);
+
+        // if(result1>result2){
+        //     alert("result1 est plus grand");
+        // } else {
+        //     alert("result2 est plus grand");
+        // }
+
+        //UTILISATION DE VAR
+        var x = "externe";
+
+        function vartest(a) {
+            if(a==true) {
+                var x = "interne";
+                return x;
+            } 
+            return x;
+        }
+
+        //HAUT DU PROGRAMME exemple VAR
+        //https://blog.wax-o.com/2014/09/comment-le-hoisting-fonctionne-en-javascript-et-pourquoi/
+        var x;
+        x = "externe";
+
+        function vartest(a) {
+            var x;
+            if(a==true) {
+                x = "interne";
+                return x;
+            } 
+            return x;
+        }
+
+
+
+
+        console.log(vartest(false),vartest(true));
+
+        //UTILISATION DE LET 
+        //HAUT DU PROGRAMME EXEMPLE LET
+        let z;
+        z = "externe";
+
+        function vartest2(b) {
+
+            if(b==true) {
+                let z;
+                z = "interne";
+                return z;
+            } 
+            return z;
+        }
+
+        console.log(vartest2(false),vartest(true));
+
+
+
+        //les constantes
+        const TEST = "Bonjour";
+
+        console.log(TEST);
+
+        //TEST = "Au revoir";
+
+        //const ACTIVER = true;
+
+
+
+        var l = true;
+        if(!(l == true)){
+            console.log('L est vrai');
+        } else {
+            console.log('L est faux');
+        }
+
+
+    </script>
+</body>
+</html>

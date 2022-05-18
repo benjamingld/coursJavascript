@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const MAJEURFR = 18;
+        const MAJEURUS = 21;
+        let pays = prompt("Saisir votre pays (US OU FR)");
+        let age = prompt("Saisir votre age");
+        console.log(age,pays);
+
+
+        let ageEntier = parseInt(age);
+        if(Number.isInteger(ageEntier) == true && (pays=="FR" || pays=="US")){
+            if(ageEntier>=MAJEURFR && pays=="FR"){
+                console.log("MAJEUR FR");
+            } else if(ageEntier>=MAJEURUS && pays=="US"){
+                console.log("MAJEUR US");
+            } else {
+                console.log("MINEUR");
+            }
+        } else {
+            console.log("Erreur de saisie");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // console.log('------PREMIER SI------');
+        // const CHAINE = "Choisir une valeur numérique entière";
+        // //DANS INFO RETOUR DU PROMPT
+        // let info = prompt(CHAINE);
+        // //TRANSFORME LE PROMPT EN ENTIER
+        // let valeurEntiere = parseInt(info);
+
+
+
+        // if(Number.isInteger(valeurEntiere)){
+        //     if(valeurEntiere>=0 && valeurEntiere<=20){
+        //         console.log("Note correcte");
+        //     } else {
+        //         console.log("Note incorrecte");
+        //     }
+        // } else {
+        //     console.log("PAS entier");
+        // }
+
+        //CONFIRM
+        // console.log('------2eme SI------');
+        // if(confirm('Accepter la demande')){
+        //     alert('Accepter');
+        // }else{
+        //     alert('Non accepter');
+        // }
+
+
+        //TERNAIRE
+        //AFFECTATION DANS LA VARIABLE JE MET TRUE (=)
+        // let boolean = true;
+
+        //VERIFICATION JE VAIS VERIFIER SI BOOLEAN == TRUE
+        // if(boolean){
+        //     document.write('BOOL VRAI');
+        // } else {
+        //     document.write('BOOL FAUX');
+        // }
+
+
+        // if(boolean == true){
+        //     document.write('BOOL VRAI');
+        // } else {
+        //     document.write('BOOL FAUX');
+        // }
+
+        //SI TERNAIRE entre () la condition 
+        //entre ? et : c'est le alors
+        //entre : et ; c'est le sinon
+        // (boolean)?document.write('OK'):document.write('PAS OK');
+
+
+        const INFO = parseInt(prompt("Choisir une valeur entiere"));
+        switch(INFO){
+            case 1 : 
+                alert('1');
+            case 2 : 
+                alert('2');
+                break;
+            default :
+                alert('inconnu');
+        }
+
+        // const INFO2 = parseInt(prompt("Choisir une valeur entiere"));
+        // switch(INFO2){
+        //     case 0 : 
+        //     case 1 :
+        //     case 2 :
+        //     case 3 : 
+        //         alert('null');
+        //         break;
+        //     case 4 :
+        //     case 5 :
+        //     case 6 : 
+        //         alert('moyen');
+        //         break;
+        //     case 7 :
+        //     case 8 :
+        //     case 9 :
+        //     case 10 : 
+        //         alert('super');
+        //         break;    
+        //     default :
+        //         alert('inconnu');
+        // }
+
+
+
+        const INFO3 = parseInt(prompt("Choisir une valeur entiere"));
+        switch(true){
+            case INFO3>=0 && INFO3<=4 :
+                alert('null');
+                break;
+            case INFO3>4 && INFO3<=7 : 
+                alert('moyen');
+                break;
+            case INFO3>7 && INFO3<=10 :  
+                alert('super');
+                break;    
+            default :
+                alert('inconnu');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!-- SAISIR UN COULEUR :
+
+si rouge > cerise
+si jaune > banane
+si vert > pomme
+autre couleur afficher erreur; -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const A1 = prompt("SAISIR LA COULEUR");
+        const A2 = A1.toLowerCase();
+        const A3 = A2.trim();
+
+
+
+        const COULEUR = prompt("SAISIR UNE COULEUR").toLowerCase().trim();
+        switch(COULEUR){
+            case "rouge" :
+                alert('Cerise');
+                break;
+            case "jaune" :
+                alert("banane");
+                break;
+            case "vert" :
+                alert("pomme");
+                break;
+            default :
+                alert('ERREUR DE SAISIE');
+        }
+    </script>
+</body>
+</html>
