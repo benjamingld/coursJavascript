@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // creer une fonction acceptant en parametre deux chaines de caractere
+        // compter le nombre de lettre
+
+        // Lancer la fonction en me disant lequel des deux mots et le plus long
+        function verifMot(a,b){
+            return (a.length>b.length)?a:b;
+
+           if(a.length>b.length){
+            return a;
+           }else{
+            return b;
+           }
+        }
+        
+
+
+       const MOTLONG = verifMot(prompt("Val1"),prompt("Val2"));
+
+       console.log(MOTLONG);
+
+    </script>
+</body>
+</html>
