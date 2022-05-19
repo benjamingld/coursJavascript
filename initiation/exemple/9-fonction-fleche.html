@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // FONCTION STANDARD
+        function addition(a,b){
+            let result = a+b;
+            console.log(result);
+            return result;
+        }
+
+        addition(3,5);
+
+        //FONCTION ANONYME
+        let somme = function (a,b){
+            let result = a+b;
+            console.log(result);
+            return result;
+        }
+        somme(8,8);
+
+        //ES6 : VERSION FONCTION
+        let somme2 = (a,b) => {
+            let result = a+b;
+            console.log(result);
+            return result;
+        }
+        somme2(14,14);
+
+
+
+
+
+
+
+
+        //ICI VERSION RACCOURCI ON NE SPECIFIE PAR LES { } et le mot clé Return car seul et unique instruction
+        let somme3 = (a,b) => a+b;
+
+        somme3 = function(a,b){
+            return a+b;
+        }
+
+
+        //SI ON DOIT INTEGRER DES INSTRUCTIONS ON PEUT UTILISER LES { } comme pour la fonction basique
+        let sommebis = (a,b) => { let result = a+b; return result;}
+
+
+        console.log(somme(10,10), somme2(10,10), sommebis(10,10));
+
+        //SOMME 3 EQUIVALENT RACCOURCI SOMME4
+        let somme5 = function(a) {
+            return a+3;
+        }
+        //SI UN SEUL PARAMETRE PAS BESOIN DE PARENTHESE
+        let somme4 = a => a+3;
+
+        alert(somme4(3));
+
+
+        
+
+
+
+
+
+
+
+
+
+        
+
+    </script>
+</body>
+</html>
