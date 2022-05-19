@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function premiere(){
+        //     console.log("Bonjour");
+        //     return "hello";
+        // }
+
+        // var info = premiere();
+        // console.log(info);
+
+        // console.log("--FUNCTION CALCUL--");
+
+        // function calcul(a,b){
+        //     let nombre1 = a;
+        //     let nombre2 = b;
+        //     return nombre1 + nombre2;
+        // }
+
+        // let result = calcul(parseInt(prompt("Valeur1")),parseInt(prompt('Valeur2')));
+        // console.log(result);
+        
+        
+        
+        // result = calcul(30,25);
+        // console.log(result);
+        // result = calcul(45,25);
+        // console.log(result);
+        
+        //PORTE VARIABLE FUNCTION
+        // var message = "ICI GLOBALE";
+
+        // function infoMessage(){
+        //     var message = "ICI LOCALE";
+        //     console.log(message);
+        //     return message;
+        // }
+
+        // var result = infoMessage();
+        // console.log(message,result);
+
+
+        // //PARAMETRE
+        // function information(arg1,arg2,arg3){
+        //     if(typeof arg3=="undefined"){
+        //         console.log(arg1,arg2);
+        //     }else{
+        //         console.log(arg1,arg2,arg3);
+        //     }
+
+        // }
+
+        // information(1,2);
+        // information(1,2,3);
+
+
+
+
+
+        // //RETURN
+        // function retour(){
+        //     console.log('ok');
+        //     return 5;
+        // }
+
+
+        // const INFO = retour();
+        // console.log(INFO);
+
+        // //FONCTION ANONYME
+        // let anom = function(){
+        //     console.log('Fonction anonyme');
+        //     return "Anomnyme";
+        // }
+
+        // console.log(anom.__proto__);
+
+        // anom();
+
+        // const X = 5;
+        
+        // if(X == 3){
+        //     var anom = function(){
+        //         console.log('Fonction anonyme &&&&');
+        //         return 55;
+        //     }; 
+        // } else {
+        //     var anom = function(){
+        //         console.log('Fonction anonyme 333');
+        //         return 42;
+        //     }; 
+        // }
+        // const RETOUR = anom();
+        // console.log(RETOUR);
+        // anom = "test";
+        // anom();
+
+
+        //IIFE
+
+        var test = "oui";
+        let x = 18;
+        (function(a){
+            var test = "non";
+            console.log(test,a);
+        })(x);
+
+        x = 34;
+        console.log(x);
+
+        
+
+
+    </script>
+</body>
+</html>
