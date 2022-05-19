@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log("PREMIERE maniere");
+
+        // let texte;
+        // let final = "";
+
+        // do{
+        //     texte = prompt("Saisir une lettre");
+        //     final = final + " " + texte;
+        // }while(texte!="")
+
+        // alert(final);
+
+        console.log("DEUXIEME maniere");
+        // let texte = prompt("Saisir une lettre");
+        // let final = texte + " ";
+
+        while(texte!=""){
+            texte = prompt("Saisir une lettre");
+            final = final + " " + texte;
+        }
+        
+        // alert(final);
+
+
+        console.log("TROISIEME maniere");
+
+        let texte;
+        let final = "";
+
+        while(true){
+            texte = prompt("Saisir une lettre");
+            if(texte != ""){
+                final += texte + " ";
+                //ALTERNATIVE D'ECRITURE
+                // final = final + texte + " ";
+            }else {
+                break;
+            }
+        }
+        alert(final);
+
+
+
+
+
+
+    </script>
+</body>
+</html>

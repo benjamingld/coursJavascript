@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log("DEBUT DU FOR");
+        let i;
+        for(i=0;i<=3;i++){
+            console.log("Valeur de i : "+ i);
+        }
+
+        console.log("FIN DU FOR");
+        console.log(i + "sortie");
+
+        var total = "", texte;
+
+        for(var total = "", texte;true;){
+            texte = prompt("Saisir une valeur");
+            if(texte!=""){
+                total = total + texte + ",";
+            }else {
+                break;
+            }
+        }
+        alert(total);
+    </script>
+</body>
+</html>
