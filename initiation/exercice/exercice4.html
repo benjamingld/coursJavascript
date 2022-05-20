@@ -13,7 +13,7 @@
 
         // Lancer la fonction en me disant lequel des deux mots et le plus long
         function verifMot(a,b){
-            return (a.length>b.length)?a:b;
+            //return (a.length>b.length)?a:b;
 
            if(a.length>b.length){
             return a;
@@ -27,6 +27,34 @@
        const MOTLONG = verifMot(prompt("Val1"),prompt("Val2"));
 
        console.log(MOTLONG);
+
+
+       //FONCTION ANONYME
+       let funcVerif = function (a,b){
+            //return (a.length>b.length)?a:b;
+
+           if(a.length>b.length){
+            return a;
+           }else{
+            return b;
+           }
+        }
+        funcVerif(prompt("Val1"),prompt("Val2"));
+
+        //ES6
+        let funcVerif2 = (a,b) => {
+            //return (a.length>b.length)?a:b;
+
+           if(a.length>b.length){
+            return a;
+           }else{
+            return b;
+           }
+        }
+        funcVerif2(prompt("Val1"),prompt("Val2"));
+
+
+
 
     </script>
 </body>
