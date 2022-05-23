@@ -18,5 +18,35 @@
             <li>La programmation <strong>ok</strong></li>
         </ul>
     </div>
+    <form action="">
+        <input type="text" name="prenom">
+    </form>
+    <script>
+
+        //PERMET DE RECUPERER UN ELEMENT HTML PAR SON ID
+        console.log(document);
+        var information = document.getElementById('container').innerHTML;
+        console.log(information);
+
+        //PERMET DE RECUPERER DES ELEMENTS PAR BALISE HTML
+        let tabLi = document.getElementsByTagName('li');
+        console.log(tabLi);
+        for(let i=0;i< tabLi.length;i++){
+            console.log("Element " + i + ":" + tabLi[i].innerHTML);
+        }
+
+        //PERMET DE RECUPERER UN ou des ELEMENT(s) DU FORMULAIRE PAR SON "NAME"
+        console.log(document.getElementsByName("prenom"));
+
+
+        //PERMET DE RECUPERER LES ELEMENTS PAR LA CLASSE
+        let tabP = document.getElementsByClassName('paragraphe');
+        console.log(tabP[1]);
+
+        for(let i=0;i< tabP.length;i++){
+            console.log("Element " + i + ":" + tabP[i].innerHTML);
+        }
+
+    </script>
 </body>
 </html>
