@@ -63,3 +63,16 @@ function lanceDes(aux){
 }
 
 //VARIANTE AVEC TABLEAU
+function lanceDesTab(aux){
+    let somme = 0;
+    let tableau = [];
+    let des;
+    for(let i =0; i<aux;i++){
+        des = Math.ceil(Math.random()*6);
+        somme = somme + des;
+        //tableau.push(des);
+        tableau[i] = des;
+    }
+    console.log(tableau);
+    return somme;
+}

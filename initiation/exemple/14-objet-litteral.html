@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let user1 = {
+        //     nom : "Paris",
+        //     prenom : "Anthony",
+        //     ville : "Cambrai",
+        //     sport : ["Foot", "Tennis", "Curling"],
+        //     information : function(){
+        //         console.log("Je m'appelle : " + user1['prenom'] + " " + user1.nom);
+        //     },
+        //     affichage_sport : function(){
+        //         //Le mot clé this, mot clé natif de javascript
+        //         //this veut dire l'objet dans lequel je suis
+        //         this.sport.forEach(function(elm,index){
+        //             console.log("Sport : "+(index+1)+ " - " + elm);
+        //         });
+        //     }
+
+        // };
+        // //PERMET D'OBTENIR LES INFOS COMPLETES DE L'OBJET
+        // for(var aux in user1){
+        //     console.log(user1[aux]);
+        // }
+
+        // user1.information();
+        // user1.affichage_sport();
+
+        //Attribut :
+        // - Modele
+        // - Annee
+        // -KM
+        // -Vitesse max
+        // methode :
+        // - une methode permettant d'afficher toutes les infos du véhicule
+        // - methode(250) -> afficher a l'ecran : je peux rouler a 250 ou je ne peux pas
+
+        // let voiture = {
+        //     modele : "Peugeot",
+        //     annee : new Date(2020,10,05),
+        //     km : 10000,
+        //     vitesse: 160,
+
+        //     infos : function(){
+        //         document.write("<h1>Fiche voiture</h1>");
+        //         document.write("Modèle véhicule : "+ this.modele +"<br>");
+        //         document.write('Mise en circulation : '+this.annee+"<br>");
+        //         document.write('Kilomètrage : '+this.km+"<br>");
+        //         document.write('Vitesse Max : '+this.vitesse+"<br>");
+        //     },
+
+        //     vitesse_possible : function(vitesse){
+        //         (this.vitesse>vitesse)?alert('Je peux rouler à '+vitesse+'km'):alert('Véhicule trop lent');
+        //     }
+        // };
+
+        // voiture.infos();
+        // voiture.vitesse_possible(parseInt(prompt('Saisir la vitesse')));
+
+        //PREMIERE VERSION
+        function identite(){
+            let nom = "Paris";
+            let prenom = "anthony";
+            return [nom,prenom];
+        }
+
+
+        let result = identite();
+        alert(result[0]);
+
+        //DEUXIEME VERSION
+        function identite2(){
+             let information = {
+                prenom : "anthony",
+                nom : "Paris",
+                info : function(){
+                    console.log(this.nom+" "+this.prenom);
+                }
+            }
+            return information;
+        }
+        let resultat = identite2();
+        console.log(resultat.nom);
+        resultat.info();
+    </script>
+</body>
+</html>

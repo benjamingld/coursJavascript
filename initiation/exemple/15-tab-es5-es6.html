@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // //ES5
+        // var tableau = [1,2,3,4];
+        // var premier = tableau[0];
+        // var troiseme = tableau[2];
+        // console.log(premier,troiseme);
+
+        // //ES6
+        // const TABLEAU = [1,2,3,4,5,6,7];
+        // [a,,b] = TABLEAU;
+        // console.log(a,b,TABLEAU);
+        // let final = TABLEAU[TABLEAU.length-1];
+        // console.log(final);
+
+        // //ES5
+        // var a=1, b=2;
+        // var tmp = a;
+        // a = b;
+        // b = tmp;
+        // console.log(a,b);
+
+        // //ES6
+        // let c = 1, d= 2;
+        // [c,d] = [d,c];
+        // console.log(c,d);
+
+
+        //EXEMPLE AVEC OBJETS LITTERAUX
+        function marges(){
+            return{
+                gauche :1,
+                droite:2,
+                bas:4,
+                haut:3
+            }
+        }
+
+        var data = marges();
+        var gauche1 = data.gauche;
+        var bas2 = data.bas;
+
+        console.log(gauche1,bas2);
+
+
+        const {bas,haut} = marges();
+        console.log(bas,haut);
+
+    </script>
+</body>
+</html>
