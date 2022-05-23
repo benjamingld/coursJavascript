@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    creer une fonction permettant de :
+    -Donner la main à l'utilisateur pour saisir des notes
+    -Stocker les notes
+    -La saisie s'arrete quand l'utilisateur tape "" + enter
+    -Afficher la moyenne.
+    -Si moyenne <10 afficher que c'est nul si > 10 afficher 
+    que c'est bien
+
+    <script>
+        function calculMoyenne(){
+            let tableau = [];
+            let note = "";
+            let somme = 0;
+            const STOP = "";
+            do{
+                note = prompt("Entrer note :");
+                if(note != STOP && note>=0 && note<=20){
+                    tableau.push(parseInt(note));
+                } else {
+                    alert("Erreur ou fin du programme")
+                }
+                console.log(note);
+            }while(note != STOP)
+            console.log("--fin--");
+            console.log(tableau);
+            //AFFICHAGE MOYENNE
+            //tableau.forEach((elm,ind)=>somme += elm);
+            tableau.forEach(function(elm,ind){
+                somme = somme + elm;
+            });
+
+            alert("Moyenne : " + (somme / tableau.length).toFixed(2));
+
+
+        }
+        calculMoyenne();
+    </script>
+</body>
+</html>

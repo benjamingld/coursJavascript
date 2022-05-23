@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    let tableau = ["a","b","c","d"];
+    console.log("___METHOD1______");
+
+    //FOR
+    let concatenation = "";
+    for(let i=0;i<tableau.length;i++){
+        concatenation += tableau[i] + ",";
+    }
+    console.log(concatenation);
+
+
+
+    console.log("____METHOD2_____");
+
+    tableau.forEach(function(elm){
+        console.log(elm);
+
+    });
+
+
+    console.log("___METHOD3____");
+
+    for(let elm of tableau){
+        console.log(elm);
+    }
+    </script>
+
+</body>
+</html>

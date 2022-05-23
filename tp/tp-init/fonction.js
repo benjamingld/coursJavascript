@@ -51,3 +51,15 @@ let CalculMoyenne = function(nbNote){
     moyenne = result/nbNote;
     alert(moyenne);
 }
+
+
+//exercice 3
+function lanceDes(aux){
+    let somme = 0;
+    for(let i =0; i<aux;i++){
+      somme = somme + Math.ceil(Math.random()*6);
+    }
+    return somme;
+}
+
+//VARIANTE AVEC TABLEAU
