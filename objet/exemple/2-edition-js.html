@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .link{
+            color:red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <p class="paragraphe1 paragraphe">Bonjour à tous</p>
+        <p class="paragraphe2 paragraphe">Ceci est ma page de <a href="contact.html" title="contact">contact</a></p>
+        <p class="paragraphe3 paragraphe">J'aime <span>netflix </span></p>
+        <ul id="liste">
+            <li>Netflix</li>
+            <li><span>L'argent</span></li>
+            <li>Les voitures</li>
+            <li>La programmation <strong>ok</strong></li>
+        </ul>
+        <ul id="information">
+            <li>Netflix</li>
+            <li><span>L'argent</span></li>
+            <li>Les voitures</li>
+            <li>La programmation <strong>ok</strong></li>
+        </ul>
+    </div>
+
+    <script type="text/javascript">
+        //JE SELECTIONNE LA BALISE HTML A
+        let lien = document.querySelector("div#container p.paragraphe2 a");
+        console.log(lien);
+        //GETATTRIBUTE RENVOIE l'attribut href de la balise a
+        console.log(lien.getAttribute('href'));
+        //modification
+        lien.setAttribute("href", "https://www.amazon.fr");
+        lien.setAttribute("title", "Amazon");
+
+        //SELECTIONNE UN PARAGRAPHE
+        let paragraphe = document.querySelector("p.paragraphe3");
+        //RECUPERE LA ou LES CLASSES DE l'ELEMENT
+        console.log(paragraphe.getAttribute("class"));
+        //AJOUTER DES CLASSES
+        paragraphe.setAttribute("class","paragraphe4 paragraphe");
+        console.log(paragraphe.getAttribute("class"));
+        //AJOUTER DES CLASSES SANS RE-INITIALISER L'ATTRIBUT COMPLET
+        paragraphe.classList.add('nouvelle');
+        paragraphe.classList.remove('paragraphe');
+        console.log(paragraphe.getAttribute("class"));
+
+
+
+        function modification(elm,attr,val){
+            elm.setAttribute(attr,val);
+        }
+
+
+        let lien2 = document.querySelector("div#container p.paragraphe2 a");
+        modification(lien2,"class","link");
+        modification(paragraphe,"class","link");
+        modification(document.querySelector("ul#information li"),"class","link");
+
+
+    </script>
+</body>
+</html>
