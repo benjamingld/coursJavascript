@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="chrono" style="font-size:30px;font-weight:bold;"></p>
+
+    <script>
+        // Inserer avec javascript (voir innerHTML)
+        // une variable i qui s'incremente toutes les secondes
+        // setInterval() Sur google.
+
+        let p = document.getElementById("chrono");
+        let seconde = 0;
+        let minute = 0;
+        let heure = 0;
+
+        function timer() {
+             p.innerHTML = heure + "heure(s)" + minute + "minute(s)" + seconde++ + "seconde(s)";
+            if(seconde == 60){
+                seconde = 0;
+                minute++;
+            }
+            if(minute == 60){
+                minute = 0;
+                heure++;
+            }
+        }
+
+        setInterval(timer, 1000);
+    </script>
+</body>
+</html>
