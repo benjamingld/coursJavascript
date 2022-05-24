@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        <h1>Mon titre <span>A recuperer</span></h1>
+        <p class="paragraphe1 paragraphe">Bonjour à tous</p>
+        <p class="paragraphe2 paragraphe">Ceci est ma page de <a href="contact.html" title="contact">contact</a> fin du lien</p>
+        <p class="paragraphe3 paragraphe">J'aime <span>netflix </span></p>
+        <ul id="liste">
+            <li>Netflix</li>
+            <li><span>L'argent</span></li>
+            <li>Les voitures</li>
+            <li>La programmation <strong>ok</strong></li>
+        </ul>
+        <ul id="information">
+            <li>Netflix</li>
+            <li><span>L'argent</span></li>
+            <li>Les voitures</li>
+            <li>La programmation <strong>ok</strong></li>
+        </ul>
+    </div>
+
+    <script>
+        // //Element's' tableau de resultat!!!
+        // let elm = document.getElementsByClassName("paragraphe")[1];
+        // console.log(elm);
+        // //RECUPERER LA BASE PARENTE DE MON ELEMENT
+        // console.log(elm.parentNode);
+        // // //AFFICHER LE CONTENU DU PARENT
+        // console.log(elm.parentNode.innerHTML);
+        // // //RECUPERER LE CONTENU TOTAL DU BODY
+        // console.log(elm.parentNode.parentNode.innerHTML);
+
+
+
+        // let liste = document.querySelector("ul#liste");
+        // //FIRST CHILD // LAST CHILD (undefined car noeud de type texte)
+        // console.log(liste.firstChild,liste.lastChild.innerHTML);
+        // //FIRST ELEMENT CHILD // LAST ELEMENT CHILD (ne prend pas en compte les noeuds de type texte)
+        // console.log(liste.firstElementChild,liste.lastElementChild.innerHTML);
+
+        // // function $(elm){
+        // //     return document.querySelector(elm);
+        // // }
+
+        // // console.log($("ul#information"));
+
+
+        // let container = document.querySelector("div#container");
+
+        // //RECUPERER LE CONTENU DE SPAN DANS H1 LUI MEME DANS CONTAINER
+        // console.log(document.querySelector('div#container').firstElementChild.firstElementChild.innerHTML);
+
+
+        // //VOIR PAGE 14
+        // let paragraphe = document.querySelector("p.paragraphe2");
+        // //FIRST CHILD = NOEUD DE TYPE TEXTE;
+        // //nodeValue = data
+        // console.log(paragraphe.firstChild.nodeValue,paragraphe.firstChild.data);
+
+        // //CHANGER LE CONTENU D'un noeud de type texte
+        // document.querySelector("div#container").firstElementChild.firstChild.data = "bonjour";
+
+        // //AFFICHER TOUS LES NOEUDS
+        // console.log(paragraphe.childNodes);
+        // //EN FONCTION DU TYPE DE NOEUD AFFICHER SON CONTENU
+        // for(let i = 0; i<paragraphe.childNodes.length;i++){
+        //     if(paragraphe.childNodes[i].nodeType == 1){
+        //         console.log("Element HTML Valeur : " + paragraphe.childNodes[i].innerHTML);
+        //     } else {
+        //         console.log("node text value : " + paragraphe.childNodes[i].data);
+        //     }
+        // }
+
+        //CREER L'EXEMPLE DU DESSUS EN FONCTION
+        function verifNode(elm){
+            let table = new Array();
+            for(let i = 0; i<elm.childNodes.length;i++){
+                if(elm.childNodes[i].nodeType == 1){
+                    table[i] = "Element HTML Valeur : " + elm.childNodes[i].innerHTML;
+                } else {
+                    table[i] = "node text value : " + elm.childNodes[i].data;
+                }
+            }
+            return table;
+        }
+
+        let container2 = document.querySelector("div#container");
+        console.log(verifNode(container2));
+
+
+
+
+
+
+    </script>
+</body>
+</html>

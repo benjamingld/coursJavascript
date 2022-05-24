@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <div id="container">
+        <h1>Mon titre</h1>
+        <p class="paragraphe1 paragraphe">Bonjour à tous</p>
+        <p class="paragraphe2 paragraphe">Ceci est ma page de <a href="contact.html" title="contact">contact</a></p>
+        <p class="paragraphe3 paragraphe">J'aime <span>netflix </span></p>
+        <ul id="liste">
+            <li>Netflix</li>
+            <li><span>L'argent</span></li>
+            <li>Les voitures</li>
+            <li>La programmation <strong>ok</strong></li>
+        </ul>
+        <ul id="information">
+            <li>Netflix</li>
+            <li><span>L'argent</span></li>
+            <li>Les voitures</li>
+            <li>La programmation <strong>ok</strong></li>
+        </ul>
+    </div>
+    <script>
+        //CIBLE L'ELEMENT PARAGRAPHE 2
+        let monElement = document.querySelector("p.paragraphe2");
+        //VERIFIERSI ON LE CIBLE BIEN
+        console.log(monElement);
+        //AFFICHE EN CONSOLE LE CONTENU HTML DE MON ELEMENT SELECTIONNE
+        console.log(monElement.innerHTML);
+        //REMPLACER LE CONTENU
+        monElement.innerHTML = "Texte remplacé";
+        //RAJOUTER DU CONTENU (Exemple un lein vers google )
+        monElement.innerHTML = monElement.innerHTML + " <a href=\"http://www.google.fr\">Google</a> <hr>";
+        //EQUIVALENT   
+        monElement.innerHTML += " <a href=\"http://www.jeuxvideo.com\">JVC</a>";
+
+    </script>
+</body>
+</html>

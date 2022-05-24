@@ -10,10 +10,17 @@
             color:red;
             font-weight: bold;
         }
+        .red{
+            color:red;
+        }
+        .blue{
+            color:blue;
+        }
     </style>
 </head>
 <body>
     <div id="container">
+        <h1>Mon titre</h1>
         <p class="paragraphe1 paragraphe">Bonjour à tous</p>
         <p class="paragraphe2 paragraphe">Ceci est ma page de <a href="contact.html" title="contact">contact</a></p>
         <p class="paragraphe3 paragraphe">J'aime <span>netflix </span></p>
@@ -54,16 +61,30 @@
         console.log(paragraphe.getAttribute("class"));
 
 
-
+        //FONCTION PERMETTANT DE MODIFIER LES ATTRIBUTS DES ELEMENTS HTML
         function modification(elm,attr,val){
             elm.setAttribute(attr,val);
         }
 
-
+        //UTILISATION DE LA FONCTION
         let lien2 = document.querySelector("div#container p.paragraphe2 a");
         modification(lien2,"class","link");
         modification(paragraphe,"class","link");
         modification(document.querySelector("ul#information li"),"class","link");
+
+
+        //TEXTE CLIGNOTANT
+        //Setinterval permet de lancer une fonction toute les XXXms (ici 1000ms = 1sec)
+        setInterval(clignotant,1000);
+
+        function clignotant(){
+            let h1 = document.querySelector("div#container h1");
+            if(h1.getAttribute("class") == "" || h1.getAttribute("class") == "red") {
+                modification(h1,"class","blue");
+            } else {
+                modification(h1,"class","red");
+            }     
+        }
 
 
     </script>
