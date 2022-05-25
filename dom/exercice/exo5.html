@@ -8,5 +8,23 @@
 </head>
 <body>
     <img id="monimage" src="https://m.media-amazon.com/images/I/51GXJucnUaL._AC_SY200_.jpg" alt="">
+
+
+    <script>
+        //MOUSEOVER : QUAND LA SOURIS EST DESSUS
+        document.querySelector("#monimage").addEventListener("mouseover",function(){
+            this.src = "https://m.media-amazon.com/images/I/51n2NA4Qe3L._AC_SY200_.jpg";
+            //EQUIVALENT
+            this.setAttribute("src","https://m.media-amazon.com/images/I/51n2NA4Qe3L._AC_SY200_.jpg");
+        });
+
+        //MOUSEOUT : QUAND LA SOURIS QUITTE L'IMAGE
+        document.querySelector("#monimage").addEventListener("mouseout",function(){
+            this.src = "https://m.media-amazon.com/images/I/51GXJucnUaL._AC_SY200_.jpg";
+        });        
+    </script>
+
+
+
 </body>
 </html>
