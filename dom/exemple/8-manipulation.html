@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        <p id="test"> mon paragraphe <a href="#">Mon texte initial</a></p>
+        <ul id="liste">
+            <li>test</li>
+            <li>test</li>
+            <li>test</li>
+        </ul>
+    </div>
+
+    <script>
+        // //REMPLACER LE CONTENU DU LIEN
+        // let lien = document.querySelector('p#test a');
+        // let lienTexte = document.createTextNode('Nouveau texte');
+        // lien.replaceChild(lienTexte,lien.firstChild);
+
+
+        // //SUPPRIMER UN ENFANT OU UN NOEUD
+        // console.log(lien,lien.parentNode);
+        // let suppression = lien.parentNode.removeChild(lien);
+        // console.log(suppression);
+
+
+        // //DEPLACER UN ELEMENT(METHODE APPEND CHILD VOIR FICHIER 7-duplication.html)
+        // console.log(document.querySelector('p#test').hasChildNodes())
+        // //COMPTER LE NOMBRE D'ENFANTS
+        // console.log(document.querySelector('p#test').childNodes.length);
+
+        let div = document.querySelector('div#container');
+        let p = document.querySelector("p#test");
+        let info = document.createElement("span");
+        let infoTexte = document.createTextNode("Ma balise span");
+        //ASSOCIER LE TEXTE AVEC LE SPAN
+        info.appendChild(infoTexte);
+        //INSERER AVANT
+        //PREMIER PARAMETRE : L'element que je souhaite ajouter
+        //DEUXIEME PARAMETRE : ELEMENT
+        div.insertBefore(info,p);
+
+
+
+        
+
+
+
+    </script>
+</body>
+</html>

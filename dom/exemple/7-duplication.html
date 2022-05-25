@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container" style="height:300px;border:3px solid rgb(44, 90, 44);">
+        <h1>container</h1>
+        <p>Paragraphe</p>
+    </div>
+    <div id="container2" style="height:300px;border:3px solid rgb(127, 20, 20);">
+        <h1>container2</h1>
+        <p>Paragraphe</p>
+    </div>
+
+    <script>
+        //CREATION DE L'ELEMENT
+        var div1 = document.createElement('div');
+        //CREATION DU NOEUD TEXTE
+        var divText1 = document.createTextNode("Premier div créé");
+
+        div1.appendChild(divText1);
+        var div2 = div1;
+        document.querySelector("div#container").appendChild(div1);
+        document.querySelector("div#container2").appendChild(div2);
+        //TRUE AVEC ENFANT // FALSE SANS ENFANT
+        var divClone = div1.cloneNode(true);
+        document.querySelector("div#container2").appendChild(divClone);
+
+        if(div1===div2) console.log("Same elm 1 (par affectation)");
+        if(div1===divClone) console.log("Same elm 2 (par clonage)");
+
+
+        
+       
+    </script>
+</body>
+</html>
