@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<div class="container">
+    <h1>Mon titre</h1>
+    <p>Mon texte</p>
+</div>
+
+<script>
+    
+
+
+//IIFE (fonction immediatement invoquée)
+(function(){
+
+    //CREATION DES VARIABLES
+    let encre = document.querySelector('script'),
+        monContenuLi1 = document.createTextNode("premiere"),
+        monContenuLi2 = document.createTextNode("deuxieme"),
+        listeUL = document.createElement("ul"),
+        listeLi = document.createElement("li"),
+        listeLi2 = document.createElement("li");
+
+
+
+    listeLi.appendChild(monContenuLi1); //ajout du contenu première balise
+    listeLi2.appendChild(monContenuLi2); //ajout contenu deuxieme balise
+
+
+    
+    listeUL.appendChild(listeLi); //ajout d'un Li
+    listeUL.appendChild(listeLi2); //ajout du deuxieme li
+
+
+    listeUL.setAttribute("id", "liste"); //ajout de l'ID
+
+     //creation d'un ul avant script
+    document.querySelector('body').insertBefore(listeUL, encre); 
+
+
+    //CLONAGE avec les enfants (ici les li)
+    let listeUL2 = listeUL.cloneNode(true);
+    console.log(listeUL2);
+    document.querySelector('body').insertBefore(listeUL2, encre);
+    listeUL2.setAttribute("id", "liste2");
+
+})();
+
+
+</script>
+
+
+
+
+</body>
+</html>

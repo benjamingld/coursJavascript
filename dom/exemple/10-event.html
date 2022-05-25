@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="buttonEvent">non cliqué</button>
+    <script>
+        document.querySelector("button#buttonEvent").addEventListener('click',function essai(){
+           //THIS FAIT REFERENCE A L'ELEMENT DECLENCHEUR DE L'EVENT
+            console.log(this.nodeName.toLowerCase() + " : " + this.innerHTML,this.style.backgroundColor); 
+            this.innerHTML = "Cliqué";
+            if(this.style.backgroundColor == "rgb(255, 0, 0)") {
+                this.style.backgroundColor = "rgb(0, 255, 0)";
+            } else {
+                this.style.backgroundColor = "rgb(255, 0, 0)";
+            }
+
+            this.style.color = "white";
+            this.style.fontStyle = "30px";
+            //SUPPRIMER EVENEMENT. UNE FOIS QUE J'AI CLIQUER DESSUS , la fonction ne se lancera plus
+            //this.removeEventListener('click',essai);
+
+        });
+
+        document.querySelector("button#buttonEvent").addEventListener('click',function essai2(){
+           alert('test');
+        });
+
+        document.querySelector("button#buttonEvent").addEventListener('mouseover',function(){
+            this.style.backgroundColor = "rgb(255, 0, 0)";
+        });
+
+    </script>
+</body>
+</html>
+
