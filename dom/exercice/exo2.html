@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        <h1>Mon titre <span>A recuperer</span></h1>
+        <p class="paragraphe1 paragraphe">Bonjour à tous</p>
+        <p class="paragraphe2 paragraphe">Ceci est ma page de <a href="contact.html" title="contact">contact</a> fin du lien</p>
+        <p class="paragraphe3 paragraphe">J'aime <span>netflix </span></p>
+        <ul id="liste">
+            <li>Netflix</li>
+            <li><span>L'argent</span></li>
+            <li>Les voitures</li>
+            <li>La programmation <strong>ok</strong></li>
+        </ul>
+        <ul id="information">
+            <li>Netflix</li>
+            <li><span>L'argent</span></li>
+            <li>Les voitures</li>
+            <li>La programmation <strong>ok</strong></li>
+        </ul>
+    </div>
+    <script>
+        //AJOUT PREMIER LI
+        let li1 = document.createElement('li');
+        let liTexte1 = document.createTextNode("Ajout1");
+        li1.appendChild(liTexte1);
+        document.querySelector('ul#liste').appendChild(li1);
+        
+        //AJOUT DEUXIEME LI
+        let li2 = document.createElement('li');
+        let liTexte2 = document.createTextNode("Ajout2");
+        li2.appendChild(liTexte2);
+        document.querySelector('ul#liste').appendChild(li2);
+
+        //AJOUT DE L'image
+        let img = document.createElement('img');
+        img.setAttribute("src","https://m.media-amazon.com/images/I/51GXJucnUaL._AC_SY200_.jpg");
+        document.querySelector('div#container').appendChild(img);
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        // //CELA PERMET DE CREER UN ELEMENT HTML DE TYPE PARAGRAPHE
+        // let p = document.createElement('p');
+        // //CELA PERMET DE CREER UN NOEUD DE TYPE TEXTE
+        // let pTexte = document.createTextNode('Mon premier paragraphe');
+        // //ASSOCIER LE NOEUD TEXTE DANS LE PARAGRAPHE
+        // p.appendChild(pTexte);
+        // //ASSOCIER MON PARAGRAPHE DANS BODY
+        // document.querySelector('body').appendChild(p);
+        // //DEFINIR UN ATTRIBUT ID
+        // p.setAttribute('id','entete');
+        // //EQUIVALENT
+        // p.id = "other";
+        // //AJOUTER DES CLASSES
+        // p.className = "cl1 cl2 cl3";
+        // //MODIFIER LE CSS (instruction par instruction)
+        // p.style.color = "#00FF00";
+        // p.style.border = "3px dashed black";
+        // p.style.transform = "rotate(90deg)";
+        // //Cette version re-ecrit le css complet
+        // p.style.cssText = "font-size:18px;font-weight:bold;text-transform:uppercase;";
+        // //Même chose autre syntaxe
+        //  p.setAttribute('style',"font-size:18px;font-weight:bold;text-transform:uppercase");
+        // //document.querySelector('body').innerHTML= "<a href='test.html'>test</a>";
+    </script>
+</body>
+</html>
