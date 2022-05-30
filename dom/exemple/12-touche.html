@@ -41,7 +41,8 @@
         let field = document.getElementById("field"),
         keydown = document.getElementById("keydown"),
         keypress = document.getElementById("keypress"),
-        keyup = document.getElementById("keyup");
+        keyup = document.getElementById("keyup"),
+        pixel = document.querySelector("div#bouge");
         //UTILE POUR NOTRE BESOIN PAS DE DIFFERENCE MAJUSCULE MINUSCULE, SE REPETE QUAND J'APPUIE LONGTEMPS PREND EN COMPTE GAUCHE DROITE HAUT ET BAS
         document.addEventListener('keydown',function(e){
             keydown.innerHTML = e.keyCode + " " + String.fromCharCode(e.keyCode);
@@ -57,8 +58,26 @@
         });
 
 
-        offsetTop
-        offsetLeft
+        document.addEventListener('keydown',function(e){
+            switch(e.code){
+                case "ArrowUp" :
+                    console.log('TOP');
+                    pixel.style.top = (pixel.offsetTop-10) + "px";
+                    break;
+                case "ArrowRight":
+                    console.log('RIGHT');
+                    pixel.style.left = (pixel.offsetLeft+10) + "px";
+                    break;
+                case "ArrowLeft" :
+                    console.log('LEFT');
+                    pixel.style.left = (pixel.offsetLeft-10) + "px";
+                    break;
+                case "ArrowDown":
+                    console.log('BOTTOM');
+                    pixel.style.top = (pixel.offsetTop+10) + "px";
+                    break;
+            }
+        });
     </script>
 </body>
 </html>
