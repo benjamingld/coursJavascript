@@ -35,9 +35,33 @@
             alert(elmCible.dataset.texte);
         });
 
-        //QUAND JE CLIQUE 
+        //QUAND JE CLIQUE SUR AJOUT J'AJOUTE UN SPAN
+        document.querySelector("button#ajout").addEventListener("click",function(e){
+            document.querySelector("div#parent").innerHTML = "<span id=\"enfant\">Bonjour à tous</span> <span id=\"parent2\">info</span>";
+
+            // let span = document.createElement("span");
+            // let spanText = document.createTextNode("Salut à tous");
+            // span.appendChild(spanText);
+            // document.querySelector("div#parent").appendChild(span);
+        });
+
+        //console.log(document.querySelector("span#enfant"));
+        //document.querySelector("span#enfant").addEventListener("click",e=>alert('ok'));
+
+        document.querySelector("div#parent").addEventListener('click',function(e){
+            let elmCible = e.target;
+            if(elmCible.id == "enfant")
+            {
+                alert('Ajouter le comportement voulu');
+            } else {
+                return;
+            }
+        });
 
 
+        AJOUTER UN LI ENTRE LE 2EME ET LE 3EME (UN SEUL SI JE CLIQUE UNE DEUXIEME FOIS RIEN NE SE PASSE)
+        LUI AJOUTER UN ID EXEMPLE "INFO" LUI AJOUTER DEUX DATA (nb et val) exemple data-nb = 5 data-val = 6
+        ET QUAND JE CLIQUE SUR MON LI AFFICHER LA MULTIPLICATION DES DEUX VALEURS
 
     </script>
 </body>
