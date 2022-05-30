@@ -59,10 +59,33 @@
         });
 
 
-        AJOUTER UN LI ENTRE LE 2EME ET LE 3EME (UN SEUL SI JE CLIQUE UNE DEUXIEME FOIS RIEN NE SE PASSE)
-        LUI AJOUTER UN ID EXEMPLE "INFO" LUI AJOUTER DEUX DATA (nb et val) exemple data-nb = 5 data-val = 6
-        ET QUAND JE CLIQUE SUR MON LI AFFICHER LA MULTIPLICATION DES DEUX VALEURS
+        // AJOUTER UN LI ENTRE LE 2EME ET LE 3EME (UN SEUL SI JE CLIQUE UNE DEUXIEME FOIS RIEN NE SE PASSE)
+        // LUI AJOUTER UN ID EXEMPLE "INFO" LUI AJOUTER DEUX DATA (nb et val) exemple data-nb = 5 data-val = 6
+        // ET QUAND JE CLIQUE SUR MON LI AFFICHER LA MULTIPLICATION DES DEUX VALEURS
 
+        document.querySelector("button#ajout").addEventListener("click", function ajoutLi(e){
+            let liste = document.querySelector("ul#maliste");
+            let li = document.createElement("li");
+            li.id = "info";
+            li.dataset.nb = 5;
+            li.dataset.val = 6;
+            let liText = document.createTextNode("Li Ajoute");
+            li.appendChild(liText);
+            liste.insertBefore(li,liste.firstElementChild.nextElementSibling);
+            //EQUIVALENT
+            //liste.insertBefore(li,liste.children[4]);
+            this.removeEventListener("click",ajoutLi);
+        });
+
+
+        document.querySelector("ul#maliste").addEventListener('click',function(e){
+            let elmCible = e.target;
+            if(elmCible.id !="info"){
+                return;
+            } else {
+                alert(elmCible.dataset.nb*elmCible.dataset.val);
+            }
+        });
     </script>
 </body>
 </html>
