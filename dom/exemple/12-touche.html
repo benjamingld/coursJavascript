@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div#bouge{
+            width:30px;
+            height:30px;
+            background-color: cadetblue;
+            position:absolute;
+            left:200px;
+            top:230px;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        <input  id="field" type="text">
+    </p>
+    <div id="bouge"></div>
+
+    <table border="1">
+        <tr>
+            <td>KEYDOWN</td>
+            <td id="keydown"></td>
+        </tr>
+        <tr>
+            <td>KEYPRESS</td>
+            <td id="keypress"></td>
+        </tr>
+        <tr>
+            <td>KEYUP</td>
+            <td id="keyup"></td>
+        </tr>
+    </table>
+
+    <script>
+        let field = document.getElementById("field"),
+        keydown = document.getElementById("keydown"),
+        keypress = document.getElementById("keypress"),
+        keyup = document.getElementById("keyup");
+        //UTILE POUR NOTRE BESOIN PAS DE DIFFERENCE MAJUSCULE MINUSCULE, SE REPETE QUAND J'APPUIE LONGTEMPS PREND EN COMPTE GAUCHE DROITE HAUT ET BAS
+        document.addEventListener('keydown',function(e){
+            keydown.innerHTML = e.keyCode + " " + String.fromCharCode(e.keyCode);
+            console.log(e);
+        });
+        document.addEventListener('keypress',function(e){
+            keypress.innerHTML = e.keyCode + " " + String.fromCharCode(e.keyCode);
+            console.log(e);
+        });
+        document.addEventListener('keyup',function(e){
+            keyup.innerHTML = e.keyCode + " " + String.fromCharCode(e.keyCode);
+            console.log(e);
+        });
+
+
+        offsetTop
+        offsetLeft
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="buttonEvent">C'est un bouton, cliquez dessus</button>
+    <a href="https://www.google.fr">Google</a>
+    <form action="" method="get">
+        <input type="email" name="mail" id="" required>
+        <input type="submit" value="Ok">
+    </form>
+    
+    <script>
+        document.querySelector('button#buttonEvent').addEventListener('click',function(e){
+            //ENSEMBLE DES METHODES DE L'OBJET EVENT
+            console.log(e);
+            //TYPE DE L'EVENEMENT
+            console.log(e.type);
+            //CHANGER LE TEXTE
+            this.innerHTML = "TEST";
+            //OTHER METHOD
+            e.target.innerHTML = "CHANGEMENT DE TEXTE";
+            //POSITION DANS LA FENETRE
+            console.log("x : " + e.clientX + " y : " + e.clientY );
+        });
+
+
+
+        document.querySelector("a").addEventListener('click',function(e){
+            e.preventDefault();
+            location.href = "https://www.amazon.fr";
+        });
+
+        document.querySelector("body").addEventListener('click',function(e){
+            window.open("https://www.w3schools.com");
+            window.open("https://www.amazon.com");
+            window.open("https://www.ebay.com");
+        });
+
+        
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function plusGrand(){
+            let nb,max;
+            do{
+                nb = prompt('Saisir nombre');
+                //VERIFIE SI MAX EXISTE(VALEUR A L'INTERIEUR OU QUE MAX ET PLUS PETIT QUE NB)
+                if(!max || max<parseInt(nb)){
+                    max = parseInt(nb);
+                }
+            }while(nb!="");
+            return max;  
+        }
+
+        const MAXIMUM = plusGrand();
+        console.log("FIN : MAX "+MAXIMUM);
+    </script>
+</body>
+</html>

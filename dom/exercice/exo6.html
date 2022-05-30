@@ -1,15 +1,120 @@
-Création d’un chronomètre
-En partant d’une page html simple avec le bloc suivant :
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+     @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+    .push--flat {
+      position: relative;
+      color:white;
+      display: block;
+      width: 240px;
+      height: 240px;
+      border: 0;
+      margin: 0 auto;
+      outline: none;
+      background-color: #c2290a;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: box-shadow 200ms;
+      font-size:50px;
+      box-shadow: inset 0 7.5px 0 #da2e0b, inset 0 -7.5px 0 #aa2409, inset 0 0 0 7.5px #b32609, inset 0 0 0 20px #c2290a, inset 0 0 0 24px #611405, inset 0 0 0 26.0869565217px black, inset 0 0 0 32px rgba(247, 133, 110, 0.7), inset 0 0 0 43.6363636364px #c2290a, inset 0 96px 32px #aa2409, inset 0 0 24px 40px #911f08, 0 12px 0 rgba(0, 0, 0, 0.3);
+    }
+    .push--flat:after {
+      content: "";
+      position: absolute;
+      bottom: 12px;
+      left: 24px;
+      display: block;
+      width: 192px;
+      height: 192px;
+      border: 16px solid rgba(0, 0, 0, 0.3);
+      border-width: 0 0 16px;
+      border-radius: 50%;
+      transition-duration: 200ms;
+    }
+    .push--flat:active, .push--flat.is-pushed {
+      box-shadow: inset 0 7.5px 0 #da2e0b, inset 0 -7.5px 0 #aa2409, inset 0 0 0 7.5px #b32609, inset 0 0 0 20px #c2290a, inset 0 0 0 24px #611405, inset 0 0 0 28.2352941176px black, inset 0 0 0 32px rgba(247, 133, 110, 0.2), inset 0 0 0 43.6363636364px #b32609, inset 0 96px 32px #9b2108, inset 0 0 24px 40px #791a06, 0 12px 0 rgba(0, 0, 0, 0.3);
+      background-color: #b8270a;
+    }
+    .push--flat:active:after, .push--flat.is-pushed:after {
+      bottom: 28px;
+      border-width: 0;
+    }
+    div.chrono{
+      display:flex;
+      justify-content: center;
+      margin-top:20px;
+    }
+    div.chrono > span{
+      min-width:150px;
+      font-size:30px;
+      font-family: 'Orbitron', sans-serif;
+      background:rgb(29, 28, 28);
+      color:white;
+      text-align:center;
+      margin:10px;
+      border-radius:10px;
+      padding:30px 30px;
+    }
 
-  <button>START</button>
-  <div class="chrono">
-  	<span >0 heure(s)</span> :
-  	<span >0 minute(s)</span> :
-  	<span >0 seconde(s)</span> :
-  </div>
 
+    </style>
+</head>
+<body>
+    <button class="push--flat">START</button>
+    <div class="chrono ">
+        <span >0 h</span>
+        <span >0 min</span>
+        <span >0 sec</span>
+        <span >0 ms</span>
   
-Créez un chronomètre à travers une fonction qui sera lancera via le click
-sur le bouton start et en utilisant le DOM affichera les valeurs au bon endroit
+    </div>
+    <script>
+    let ms=0,s=0,mn=0,h=0;
+    let chronometre;
+    console.log(document.querySelectorAll("div.chrono>span"));
+    /*La fonction "start" démarre un appel répétitive de la fonction update_chrono par une cadence de 100 milliseconde en utilisant setInterval et désactive le bouton "start" */
+    /*La fonction update_chrono incrémente le nombre de millisecondes par 1 <==> 1*cadence = 100 */
+    function update_chrono(){
+      var sp = document.querySelectorAll("div.chrono>span");
+      ms+=1;
+      /*si ms=10 <==> ms*cadence = 1000ms <==> 1s alors on incrémente le nombre de secondes*/
+        if(ms==10){
+          ms=1;
+          s+=1;
+        }
+        /*on teste si s=60 pour incrémenter le nombre de minute*/
+        if(s==60){
+          s=0;
+          mn+=1;
+        }
+        if(mn==60){
+          mn=0;
+          h+=1;
+        }
+        /*afficher les nouvelle valeurs*/
+        sp[0].innerHTML=h+" h";
+        sp[1].innerHTML=mn+" min";
+        sp[2].innerHTML=s+" sec";
+        sp[3].innerHTML=ms*100 +" ms";
 
-Quand on a cliquer sur START, le texte se transform en STOP et si vous cliquez dessus le chronometre s'arrete
+    }
+    
+
+    document.querySelector('button').addEventListener("click",function(){
+      if(this.innerHTML == "START"){
+        chronometre = setInterval(update_chrono,100);
+        this.innerHTML = "STOP";
+      } else {
+        clearInterval(chronometre);
+        this.innerHTML = "START";
+      }
+
+    });
+    
+</script>
+</body>
+</html>
