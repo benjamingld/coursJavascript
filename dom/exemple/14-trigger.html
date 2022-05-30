@@ -7,8 +7,51 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="myDiv1" onclick="console.log('Clic sur div1');">Mon premier DIV</div>
-    <div id="myDiv2" onclick="console.log('Clic sur div2');" onmouseover="console.log('u')">Mon deuxieme DIV</div>
+    <div id="myDiv1" onclick="alert('Clic sur div1');">Mon premier DIV</div>
+    <div id="myDiv2" onclick="console.log('Clic sur div2');" onmouseover="console.log('test')">Mon deuxieme DIV</div>
     <div id="myDiv3" onclick="console.log('Clic sur div3');">Mon troisieme DIV</div>
+
+
+    <button id="info" data-nom="test de data">Afficher vos infos utilisateurs</button>
+
+    <script>
+
+        //METHODE PROPRE POUR EVENEMENT STANDARD
+        let evt = new Event("click");
+        console.log(evt, evt.__proto__);
+        document.querySelector("#myDiv1").dispatchEvent(evt);
+        //METHODE MOINS PROPRE
+        document.querySelector("#myDiv2").onmouseover();
+
+        //METHODE POUR LANCER LES EVENEMENTS PERSONNALISE
+        let custom_e = new CustomEvent('test', {
+            detail : {
+                user : 'm2I',
+                nom : 'PARIS',
+                prenom : 'Anthony',
+                mail : 'test@test.fr'
+            }
+        });
+
+
+        document.addEventListener('test',function(e){
+            console.log(e);
+            console.log(e.detail.user,e.detail.nom);
+        });
+
+
+
+        document.querySelector("button#info").addEventListener('click',function(e){
+            if(!this.dataset.nom){
+                console.log("EXISTE PAS :");
+                document.dispatchEvent(custom_e);
+            }else {
+                console.log("EXISTE : " + this.dataset.nom)
+            }
+        });
+
+
+    </script>
+
 </body>
 </html>
