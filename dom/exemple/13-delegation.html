@@ -17,7 +17,28 @@
         <li>Item 7</li>
         <li>Item 8</li>
         <li>Item 9</li>
-        <li class="element" data-texte="42">Item 10</li>
+        <li class="element" data-texte="42" data-info="bonjour">Item 10</li>
     </ul>
+
+    <div id="parent"></div>
+    <button id="ajout">Ajouter un élément</button>
+
+
+    <script>
+        //DELEGATION EVENEMENT ME PERMET EN CREANT UN SEUL EVENT DE CIBLER CERTAINS LI SELON CONDITION 
+        document.querySelector('ul#maliste').addEventListener('click',function(e){
+            let elmCible = event.target;
+            if(elmCible.className != "element"){
+                //SI l'element cible par le click ne possède pas la classe "element" je ne fais rien
+                return;
+            }
+            alert(elmCible.dataset.texte);
+        });
+
+        //QUAND JE CLIQUE 
+
+
+
+    </script>
 </body>
 </html>
