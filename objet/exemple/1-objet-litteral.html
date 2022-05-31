@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <button id="creation_p" class="btn btn-success mt-3">Générer un paragraphe</button>
+
+
+
+    <script>
+      let litteral = {
+          //ATTRIBUT
+        id : 1,
+        prenom : "Jean",
+        nom : "Dupond",
+        age : 50,
+        boolean : true,
+        tableau : ["a","b","c","d","e"],
+         // METHODES
+         test : function(){
+             console.log(this.prenom);
+             return (this.age+this.id);
+        },
+         concatenation : function(){
+             let result;
+             alert('Bonjour' + this.prenom + " " + this.nom  + " " + this.age + " " + this.tableau[3]);
+             result = this.test();
+             return result;
+        },
+        clicBTN : function(XX){
+            
+        }
+      };  
+
+      //console.log(litteral.id);
+      //litteral.test()
+      //test();
+      //console.log(litteral['id'],litteral.tableau[2]);
+
+      var resultat = litteral.concatenation();
+      console.log("Lancement methode : "+ resultat);
+    </script>
+</body>
+</html>
