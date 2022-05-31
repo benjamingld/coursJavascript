@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //CLASS
+        function Voiture(marque,annee,km,boite){
+            this.marque = marque;
+            this.annee = annee;
+            this.km = km;
+            this.boite = (!boite)?"Manuelle":boite;
+            this.pneu = 4;
+        }
+
+        //OBJET
+        var opel = new Voiture("opel",2009,"test","Auto",5);
+        var twingo = new Voiture("Twingo", 2010, 100000, "Manuelle");
+        var peugeot = new Voiture("Peugeot", 2010,"","");
+
+        console.log(peugeot.marque);
+
+        var tableau = new Array(opel,twingo,peugeot);
+
+        console.log(tableau);
+
+        var tabtest = new Array("BMW",2020,10000,"Auto");
+        
+        //... TRANSFORME UN TABLEAU EN UNE CHAINE 
+        var bmw = new Voiture(...tabtest);
+        console.log(bmw,tableau[2].annee);
+
+        if(opel instanceof Voiture){
+            console.log("il s'agit d'une voiture");
+        }
+
+        opel=12;
+
+        if(opel instanceof Voiture){
+            console.log("il s'agit d'une voiture");
+        }
+
+
+    </script>
+</body>
+</html>

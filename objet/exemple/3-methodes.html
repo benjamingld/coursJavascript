@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Voiture(marque, annee, km, boite){
+            this.marque = marque;
+            this.annee = annee;
+            this.km = km;
+            this.img = "https://kenwheeler.github.io/slick/img/lazyfonz2.png";
+            this.boite = boite;
+            this.infos = new Array();
+            this.addInfos = function(information){
+                this.infos.push(information);
+            }
+
+
+        }
+
+
+
+
+        var vehicule = new Voiture("Peugeot",2020,10000,"Manuelle");
+
+        console.log(vehicule);
+        vehicule.addInfos("Je dois passer le CT - 15/01/2020");
+        vehicule.addInfos("Ma voiture passe - 16/02/2020");
+        console.log(vehicule);
+
+    </script>
+</body>
+</html>
