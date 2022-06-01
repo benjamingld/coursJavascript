@@ -15,22 +15,68 @@
             this.img = "https://kenwheeler.github.io/slick/img/lazyfonz2.png";
             this.boite = boite;
             this.infos = new Array();
+            this.tabMessageDate = [];
+
+
             this.addInfos = function(information){
                 this.infos.push(information);
             }
+            this.addImg = function(image){
+                if(image){
+                    this.img = image;
+                }
+                let div = document.createElement("div");
+                let img = document.createElement("img");
+                img.setAttribute("src",this.img); 
+                div.appendChild(img);
+                document.body.appendChild(div);
+            } 
+        }
 
+        Voiture.prototype.texte = ()=>console.log("J'ai ajouté une fonction en dehors du constructeur");
 
+        Voiture.prototype.addInfosAvecDate = function(TabInfos){
+            //GENERATION DE LA DATE
+            let aujourdhui = new Date();
+            const options = {
+                weekday : 'long',
+                year : 'numeric',
+                month: 'long',
+                day: '2-digit',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: 'numeric',
+            };
+            const DATE_DU_JOUR = aujourdhui.toLocaleDateString('fr-FR', options);
+            this.tabMessageDate.push([TabInfos,DATE_DU_JOUR ])
         }
 
 
 
 
-        var vehicule = new Voiture("Peugeot",2020,10000,"Manuelle");
 
+
+        //CREATION DE MON OBJET
+        var vehicule = new Voiture("Peugeot",2020,10000,"Manuelle");
         console.log(vehicule);
+        //UTILISATION DE METHODE
         vehicule.addInfos("Je dois passer le CT - 15/01/2020");
         vehicule.addInfos("Ma voiture passe - 16/02/2020");
         console.log(vehicule);
+        vehicule.addImg();
+        vehicule.addImg("https://www.referenseo.com/wp-content/uploads/2019/03/image-attractive.jpg");
+        vehicule.texte();
+        //UTILISATION DES LOGS AVEC DATE
+        vehicule.addInfosAvecDate("Je dois passer le CT ");
+        vehicule.addInfosAvecDate("Je dois payer la vidange ");
+
+        console.log(vehicule.tabMessageDate);
+
+
+        vehicule.tabMessageDate.forEach(function(elm,index){
+            console.log("Informations " + elm[0]  + "Date " + elm[1]);
+        });
+
 
     </script>
 </body>
