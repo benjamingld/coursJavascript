@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //MYNAMESPACE EST AU NIVEAU GLOBALE DE LA PAGE
+        var myNameSpace = {
+            aux : 5,
+            user_id : 100,
+            nom : "Smith",
+            prenom : "John",
+            test : function(){
+                console.log(this);
+            },
+            subNameSpace : {
+                info : "Bonjour",
+                nom : "Doe",
+                prenom : "Robert",
+                init : function(){
+                    myNameSpace.test(this.nom);
+                },
+                //AVEC LES FONCTION FLECHE LE THIS N'A PAS LA MEME VALEUR QUE LE THIS UTILISANT LE MOT CLE FONCTION
+                infoThis : ()=>console.log(this)
+            }
+        }
+
+
+
+
+
+        console.log("GLOBAL" + myNameSpace.test());
+        console.log("SOUS NAMESPACE" + myNameSpace.subNameSpace.init());
+        console.log("SOUS NAMESPACE" + myNameSpace.subNameSpace.infoThis());
+
+
+        let info = "EN DEHORS"
+        console.log(info,myNameSpace.subNameSpace.info);
+
+
+        //CETTE LIGNE PERMET DE FAIRE UNE CONDITION SI LE NAMESPACE EXISTE ON LE REPREND SINON ON CREE UN
+        //NAMESPACE VIDE
+        var myNameSpace = myNameSpace || {};
+
+         console.log(myNameSpace);
+
+
+
+    </script>
+</body>
+</html>

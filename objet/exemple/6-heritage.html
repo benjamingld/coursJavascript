@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //CLASS PRINCIPAL
+        function Personnage(hp,mp,lvl,force,nom){
+            this.hp = hp;
+            this.nom = nom;
+            this.mp = mp;
+            this.lvl = lvl;
+            this.force = force;
+            console.log("JE SUIS DANS LE PERSONNAGE");
+        }
+
+        Personnage.prototype.bloquer = function(aux) {
+            this.actif = aux;
+            console.log("Joueur : " + aux);
+        }
+
+        Personnage.prototype.combat = function(perso){
+            var resteVie = perso.hp - this.force;
+            if(resteVie>0){
+                console.log("Le personnage " + perso.nom + " est encore en vie il lui reste : " + resteVie);
+                perso.hp = resteVie;
+            } else {
+                console.log("Le personnage est mort");
+                perso.hp = 0;
+                perso.actif = false;
+            }
+            return perso;
+        }
+
+
+
+
+
+
+        //CLASS ENFANT (HERITAGE DE PERSONNAGE)
+        function Magicien(hp,mp,lvl,force,nom,sort){
+            //PERMET DE RECUPERER LES ATTRIBUTS DEFINIS DANS LA CLASSE PRINCIPALE (PERSONNAGE)
+            Personnage.call(this,hp,mp,lvl,force,nom);
+            this.sort = sort;
+            console.log("JE SUIS DANS LE MAGICIEN");
+        }
+        //ME PERMET DE CLONER LE PROTOTYPE DE PERSONNAGE DANS MAGICIEN JE PEUX RECUPERER LES METHODES
+        Magicien.prototype = Object.create(Personnage.prototype);
+        //DANS LES FAITS PAS SI UTILE QUE CA
+        //VEUT DIRE QUE MALGRE LE FAIT QUE LE PROTOTYPE SOIT PERSONNAGE LE CONSTRUCTEUR RESTE MAGICIEN
+        Magicien.prototype.constructor = Magicien;
+        //JE PEUX RAJOUTER DES METHODES SPECIFIQUES AU MAGICIEN
+        Magicien.prototype.lancementSort = function() {console.log("Sortilège : "+ this.sort);}
+
+
+
+
+        //CLASS ENFANT (HERITAGE DE PERSONNAGE)
+        function Assassin(hp,mp,lvl,force,nom,furtivite){
+            //PERMET DE RECUPERER LES ATTRIBUTS DEFINIS DANS LA CLASSE PRINCIPALE (PERSONNAGE)
+            Personnage.call(this,hp,mp,lvl,force,nom);
+            this.furtivite = furtivite;
+            console.log("JE SUIS DANS ASSASSIN");
+        }
+        //ME PERMET DE CLONER LE PROTOTYPE DE PERSONNAGE DANS MAGICIEN JE PEUX RECUPERER LES METHODES
+        Assassin.prototype = Object.create(Personnage.prototype);
+        //DANS LES FAITS PAS SI UTILE QUE CA
+        //VEUT DIRE QUE MALGRE LE FAIT QUE LE PROTOTYPE SOIT PERSONNAGE LE CONSTRUCTEUR RESTE MAGICIEN
+        Assassin.prototype.constructor = Assassin;
+        //JE PEUX RAJOUTER DES METHODES SPECIFIQUES AU MAGICIEN
+        Assassin.prototype.ChangeFurtif = function(aux) {
+            this.furtivite = aux;
+            if(this.furtivite == true){
+                console.log("Assassin mode furtif");
+            } else {
+                console.log("Assassin pas furtif");
+            }
+        }
+        
+        //INSTANCIATION
+        let mage = new Magicien(200,100,100,50,"Mage Noir","feu");
+        console.log(mage);
+        mage.lancementSort();
+
+        let assassinP = new Assassin(200,100,100,50,"Assassin Tueur",false);
+        assassinP.ChangeFurtif(true);
+
+
+        assassinP = mage.combat(assassinP);
+        assassinP = mage.combat(assassinP);
+        assassinP = mage.combat(assassinP);
+        assassinP = mage.combat(assassinP);
+        
+
+        //COMBAT
+
+
+
+
+    </script>
+</body>
+</html>
