@@ -119,6 +119,32 @@
         }
 
 
+        class Voiture2 {
+            constructor(marque,annee,km,boite){
+                this.marque = marque;
+                this.annee = annee;
+                this.km = km;
+                this.boite = boite;
+                this.infos = [];
+                this.tabMessageDate = [];
+            }
+            addInfos(info){
+                this.infos.push(info);
+            }
+            texte(){
+                console.log('J\'utilise ES6');
+            }
+            addInfosAvecDate(TabInfos){
+                this.tabMessageDate.push(TabInfos);
+            }
+        }
+
+        let vehicule = new Voiture2("PEUGEOT","2020","30","AUTO");
+        vehicule.texte();
+
+
+
+
     </script>
 </body>
 </html>
