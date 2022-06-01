@@ -20,6 +20,105 @@
 
         let lion = new Animal("Lion");
         lion.parler();
+
+
+        // EXPLICATION DU CONCEPT D'ENCAPSULATION
+        // ON AFFECTE UNE FONCTION ANONYME A NOTRE VARIABLE ETAPE1
+        //ETAPE1 EST UNE FONCTION QUI RETOURNE UN TEXTE
+
+        var etape1 = function(){
+            return "retour de texte";
+        }
+        //JE SUIS OBLIGE DE LANCER MA FONCTION MANUELLEMENT POUR ATTEINDRE LE RESULTAT
+        console.log(etape1());
+
+
+        //DANS MA FONCTION ANONYME JE CREE UNE CLASSE CONSTRUCTEURS AVEC DES ATTRIBUTS ET DES METHODES
+        //JE RETOURNE LE CLASSE CONSTRUCTEUR
+        //A CE MOMENT ETAPE 2 VAUT UNE FONCTION QUI RETOURNERA UNE CLASSE.
+        var etape2 = function(){
+            function Constructeur(name){
+                this.name = name;
+                this.parler = function(){
+                    console.log(this.name + " Fait du bruit");
+                }
+            }
+            return Constructeur;
+        }
+
+        console.log(etape2());
+
+
+        //LA FONCTION ETAPE 2 RETOURNE LE CODE D'UNE CLASSE
+        //J'AFFECTE CETTE CLASSE A MA VARIABLE MaClasse'
+         var MaClasse = etape2();
+         console.log(MaClasse);
+        //J'instancie ma classe sur ma variable mon objet en fournissant un argument singe demandé par le constructeur
+         var MonObjet = new MaClasse('Singe');
+         console.log(MonObjet);
+        //MONOBJET etant un objet de type "MyClasse", je peux utiliser la methode parler definie dans la classe
+         MonObjet.parler();
+
+
+         //JE VAIS UTILISER UNE IIFE ME PERMETTANT DE LANCER DIRECTEMENT LA FONCTION ANONYME
+         var Etape3 = (function(){
+            function Constructeur(name){
+                this.name = name;
+                this.parler = function(){
+                    console.log(this.name + " Fait du bruit");
+                }
+            }
+            return Constructeur;
+        })();
+        //EN LANCEMENT MON IIFE, JE N'AI PLUS BESOIN DE FAIRE L'ETAPE SUIVANT
+        //PAR CONSEQUENT LA VARIABLE etape3 est une classe car la fonction IIFE retourne la classe Constructeur
+        //Var MaClasse = etape2();
+        //TAPE 3 ETANT UNE CLASSEJE L'AFFECTE DIRECTEMENT SUR MA VARIABLE MonObjetEtape3 qui devient un objet
+        var MonObjetEtape3 = new Etape3('cheval');
+        //JE PEUX UTILISER LES METHODES DE MA CLASSE OBJET
+        MonObjetEtape3.parler();
+
+        //CLASS 6
+        class Animal2{
+            constructor(nom){
+                this.name= nom;
+                this.tarif = 1000;
+            }
+            parler(){
+                console.log(this.name + " fait du bruit");
+            }
+        }
+
+        let chien = new Animal2('Okami');
+        let truite = new Animal2('Sofian(e)');
+        chien.parler();
+        truite.parler();
+
+
+        console.log(chien.name,truite.name);
+
+        function Voiture(marque,annee,km,boite){
+            //ATTRIBUT
+            this.marque = marque;
+            this.annee = annee;
+            this.km = km;
+            this.boite = boite;
+            this.infos = [];
+            this.tabMessageDate = [];
+            //METHODE
+            this.addInfos = function(info){
+                this.infos.push(info);
+            }
+        } 
+        //AJOUT DE METHODE VIA PROTOTYPE
+        Voiture.prototype.texte = function(){
+            console.log("j'ai ajouté une fonction en dehors du constructeur");
+        }
+        Voiture.prototype.addInfosAvecDate = function(TabInfos){
+            this.tabMessageDate.push(TabInfos);
+        }
+
+
     </script>
 </body>
 </html>
