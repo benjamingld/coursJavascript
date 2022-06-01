@@ -48,8 +48,19 @@
                 second: 'numeric',
             };
             const DATE_DU_JOUR = aujourdhui.toLocaleDateString('fr-FR', options);
-            this.tabMessageDate.push([TabInfos,DATE_DU_JOUR ])
+            this.tabMessageDate.push([TabInfos,DATE_DU_JOUR])
         }
+
+        Voiture.prototype.AffichageCarnet = function(){
+            if(this.tabMessageDate){
+                this.tabMessageDate.forEach(function(elm,index){
+                    console.log("Informations " + elm[0]  + "Date " + elm[1]);
+            });
+            } else {
+                console.log("Aucun enregistrement");
+            }
+        }
+        
 
 
 
@@ -71,11 +82,14 @@
         vehicule.addInfosAvecDate("Je dois payer la vidange ");
 
         console.log(vehicule.tabMessageDate);
+        console.log("CARNET DE VOITURE 1");
+        vehicule.AffichageCarnet();
 
+        var vehicule2 = new Voiture("BMX",2010,10000,"Manuelle");
+        vehicule2.addInfosAvecDate("Vehicule détruit - 15/01/2020");
+        console.log("CARNET DE VOITURE 2");
+        vehicule2.AffichageCarnet();
 
-        vehicule.tabMessageDate.forEach(function(elm,index){
-            console.log("Informations " + elm[0]  + "Date " + elm[1]);
-        });
 
 
     </script>
