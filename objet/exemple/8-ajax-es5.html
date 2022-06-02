@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="ajaxButton" type="button">Faire une requête</button>
+    <h1></h1>
+    <div class="content"></div>
+    <div class="chargement"></div>
+    <script>
+        //IIFE (IMMEDIATEMENT INVOQUE)
+            (function(){
+                var httpRequest;  
+
+                document.querySelector("#ajaxButton").addEventListener("click",makeRequest);
+
+            function makeRequest(){
+                httpRequest = new XMLHttpRequest();
+                
+                //SI XMLOBJET N'EST PAS DISPO
+                if(!httpRequest){
+                    alert('ERREUR : IMPOSSIBLE D\'UTILISER AJAX');
+                    return false;
+                }
+
+                //LA FONCTION QUE L'ON VEUT LANCER
+                httpRequest.onreadystatechange = alertContents;
+                //METHODE PERMETTANT DE SE GREFFER AU CHARGEMENT DES DONNEES
+                httpRequest.onprogress = ()=>{
+                   alert('CHARGEMENT');
+                };
+                //J'OUVRE LA CONNEXION AVEC LES BONS PARAMETRES
+                httpRequest.open("GET","https://www.pixel-online.fr/wp-json/wp/v2/posts/209437");
+                //JE LANCE L'APPEL A MA PAGE
+                httpRequest.send();
+            }
+
+
+            function alertContents(){
+                console.log(httpRequest);
+                if(httpRequest.readyState == XMLHttpRequest.DONE){
+                    switch(httpRequest.status){
+                        case 200:
+
+                            let resultat = JSON.parse(httpRequest.responseText);
+                            console.log(resultat);
+                            document.querySelector("h1").innerHTML = resultat.title.rendered;
+                            document.querySelector("div.content").innerHTML = resultat.content.rendered;
+                            break;
+                        case 404:
+                            alert('Page non trouvée revoir le lien');
+                            break;
+                        case 500:
+                            alert('Erreur sur le serveur');
+                            break;
+                    }
+                }
+            }
+        })();
+
+    </script>
+</body>
+</html>

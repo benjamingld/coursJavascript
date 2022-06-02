@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // LE CODE JAVASCRIPT N'EST PAS TOUJOURS SYNCHRONE 
+        //ON CONNAIT X DES LE DEBUT PAR CONTRE ON CONNAIT Y QU'APRES 1.5sec
+        //PAR CONSEQUENT LE CONSOLE LOG RENVERRA UNE ERREUR CAR LUI EST SYNCRHONE IL NE VA PAS ATTENDRE 1.5sec POUR SE LANCER
+        //SI VOUS VOULEZ ATTENDRE IL FAUT PLACER LE CONSOLE LOG DANS setTimeout
+        // var x = 3;
+
+        // setTimeout(function(){
+        //     y=4;
+        //     
+        // },1500);
+        //console.log(x+y);
+
+        
+
+
+        //  const promise1 = new Promise(function(resolve,reject){
+        //         setTimeout(function(){
+        //             console.log("PREMIERE");
+        //             resolve(30);
+        //         },2000);    
+        //  });
+        //  //VALUE (n'est pas un mot clé reservé) par contre
+        //  // c'est un parametre de callback qui va recuperer la valeur précédente retourner (ou le resolve de la promise)
+        //  promise1.then(function(v){
+        //         console.log("VALEUR DE VALUE (RESOLVE) :" + v);
+        //         console.log("DEUXIEME");
+        //         return(15+v);
+        //         //RETOURNE 30+15
+        //  }).then(function(value){
+        //         console.log("TROISIEME");
+        //         console.log(value);
+        //         //RETOURNER 45;
+        //  })
+
+        // console.log("DEHORS");
+        //  console.log( promise1);
+
+
+        //  EXEMPLE2:
+        console.log("__START__");
+
+        let calculate = function(value){
+            return new Promise((resolve,reject) => {
+                    setTimeout(()=>{console.log("CALCUL AVEC " + value);
+                    resolve(value * 2)},1000);
+                    
+            });
+        }
+
+
+        function verify(result){
+            if(result>10) {
+                alert('Supérieur à 10 : ' + result);
+            } else {
+                alert('Inferieur à 10 : ' + result);
+            }
+        }
+
+        calculate(1) //RESOLVE 2 (1*2)
+            .then(calculate) //RESOLVE 4
+            .then(r => setTimeout(()=>{console.log(r*5);return r * 5},1000)) //RENVERA (4*5) = 20 function(result) { retrun result*5}
+            .then(verify)
+
+
+        console.log("__END__");
+
+
+
+        //EXEMPLE 3 utilisation reject
+        const PROMISEEX = new Promise((resolve, reject) => {
+            const randomNumber = Math.random();
+            setTimeout(()=>{
+                if(randomNumber < 0.6) {
+                    resolve("Mon nombre est correct " + randomNumber);
+                } else {
+                    reject("Mon nombre est incorrect " + randomNumber);
+                }
+            },2000);
+        });
+
+
+        //REJECT / CATCH
+        PROMISEEX
+            .then(resolution)
+            .catch((valeur) => console.log("OPERATION ECHEC (REJECT) : " + valeur));
+
+
+            function resolution(v){ 
+                console.log("OPERATION REUSSIE(resolve) : " + v)
+            }
+
+            
+       
+    </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const info = async() => {
+            let flux = await fetch("https://www.pixel-online.fr/wp-json/wp/v2/posts/209437");
+            let fluxJson = await flux.json();
+            return fluxJson.title.rendered;
+        }
+
+        info().then(value => console.log(value));
+    </script>
+</body>
+</html>
