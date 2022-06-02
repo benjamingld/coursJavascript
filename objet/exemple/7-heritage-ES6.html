@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Employee {
+            constructor(name,title,age=""){
+                console.log("EMPLOYEE CONSTRUCTOR");
+                this.name = name;
+                this.title = title;
+                this.code = "XXXXX";
+                this.age = age;
+                
+            }
+            carteEmploye(){
+                console.log('Badge : ' + this.name + ' Rang : ' + this.title + ' Code : ' + this.code + this.age);
+            }
+            info = () => console.log("Votre code authentification est  : " + this.code);
+
+            setCode = aux=>{
+                this.code = aux;
+                console.log("Code modifié");
+            }
+        }
+        
+
+        class Consultant extends Employee{
+            constructor(name,title,age,voitureFonction = false){
+                super(name,title,age);
+                if(voitureFonction==false){
+                    this.voitureFonction = false;
+                } else {
+                    this.voitureFonction = true;
+                }
+                console.log("CONSULTANT CONSTRUCTOR");
+            }
+
+
+            carteEmploye(){
+                super.carteEmploye();
+                console.log('En tant que consultant je suis content');
+            }
+
+
+
+
+        }
+
+        let consult1 = new Consultant("Justine","Chef de Projet",30,true);
+        consult1.carteEmploye();
+        consult1.setCode("123432123");
+        consult1.info();
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        function Personnage(hp,mp,lvl,force,nom){
+            this.hp = hp;
+            this.nom = nom;
+            this.mp = mp;
+            this.lvl = lvl;
+            this.force = force;
+            console.log("JE SUIS DANS LE PERSONNAGE");
+        }
+
+        Personnage.prototype.bloquer = function(aux) {
+            this.actif = aux;
+            console.log("Joueur : " + aux);
+        }
+
+        Personnage.prototype.combat = function(perso){
+            var resteVie = perso.hp - this.force;
+            if(resteVie>0){
+                console.log("Le personnage " + perso.nom + " est encore en vie il lui reste : " + resteVie);
+                perso.hp = resteVie;
+            } else {
+                console.log("Le personnage est mort");
+                perso.hp = 0;
+                perso.actif = false;
+            }
+            return perso;
+        }
+
+        const salarie1 = new Employee("Anthony","dev");
+        salarie1.carteEmploye();
+        salarie1.setCode("1234-56");
+        salarie1.carteEmploye();
+        const infoPerso = [100,100,100,100,100];
+        const perso1 = new Personnage(...infoPerso);
+        console.log(perso1);
+        //ON NE PEUT PAS L'UTILISER CAR LA METHOD carteEmploye N'EST PAS DEFINIE DANS PERSONNAGE
+        // perso1.carteEmploye();
+
+    </script>
+</body>
+</html>
