@@ -7,14 +7,17 @@
     <title>Document</title>
 </head>
 <body>
+    <img src="" alt="" id="photo">
     <script>
         const info = async() => {
-            let flux = await fetch("https://www.pixel-online.fr/wp-json/wp/v2/posts/209437");
+            let flux = await fetch("https://api.github.com/users/hayusama");
             let fluxJson = await flux.json();
-            return fluxJson.title.rendered;
+            return fluxJson;
         }
 
-        info().then(value => console.log(value));
+        info().then(value => {
+            document.querySelector("#photo").setAttribute("src",value.avatar_url);
+        });
     </script>
 </body>
 </html>
